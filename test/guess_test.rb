@@ -32,4 +32,11 @@ class GuessTest < Minitest::Test
 
     assert_equal "Correct!", guess.feedback
   end
+
+  def test_new_argument_is_incorrect
+    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    guess = Guess.new("Saturn", card)
+
+    refute false, guess.correct?
+  end
 end

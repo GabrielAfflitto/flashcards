@@ -9,7 +9,7 @@ class Guess
   end
 
   def correct?
-    if response == "Juneau"
+    if response == card.answer
       true
     end
   end
@@ -17,6 +17,8 @@ class Guess
   def feedback
     if correct? == true
       p "Correct!"
+    elsif correct? == false
+      p "Incorrect!"
     end
   end
 
