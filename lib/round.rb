@@ -1,5 +1,6 @@
 require './lib/guess'
 require './lib/deck'
+require './lib/card'
 require 'pry'
 class Round
   attr_reader :deck,
@@ -22,6 +23,19 @@ class Round
     @guesses.last
   end
 
+  def number_correct
+    counter = 0
+    guesses.each do |guess|
+      if guess.correct? == true
+        counter += 1
+      end
+    end
+    counter
+  end
 
+  def percent_correct
+    f = number_correct.to_f / guesses.count.to_f
+    f * 100.to_i
+  end
 
 end
