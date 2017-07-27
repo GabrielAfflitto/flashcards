@@ -1,22 +1,15 @@
 require './lib/card'
 require './lib/deck'
 require './lib/round'
+require './lib/guess'
 
 
-puts "Welcome! You're playing with 4 cards"
-puts "Enter your name"
+card_1 = Card.new("What is 5 + 5?", "10")
+card_2 = Card.new("What is Rachel's favorite animal?", "panda")
+card_3 = Card.new("What is Mike's middle name?", "nobody knows")
+card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber")
 
-# name = gets.chomp
-#
-# puts name
-cards = []
-cards << Card.new("What is the capital of Alaska?", "Juneau")
-cards << Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars")
-# puts cards.last.question
-
-deck = Deck.new(cards)
-
-# puts deck.count
+deck = Deck.new([card_1, card_2, card_3, card_4])
 
 round = Round.new(deck)
 

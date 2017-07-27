@@ -39,8 +39,20 @@ class Round
   end
 
   def start
-    
+    puts "Welcome! You're playing with 4 cards."
+    puts "-------------------------------------"
+    start_refactor_loop
+    puts "****** Game Over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck.count} for a score of #{percent_correct}%."
+  end
 
+  def start_refactor_loop
+    until guesses.count == deck.count
+      puts "This is card number #{@index + 1} out of #{deck.count}"
+      puts "Question: #{current_card.question}"
+      user_input = gets.chomp
+      record_guess(user_input).feedback
+    end
   end
 
 end
