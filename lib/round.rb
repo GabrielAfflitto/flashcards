@@ -38,4 +38,9 @@ class Round
     f * 100.to_i
   end
 
+  def start
+    
+
+  end
+
 end

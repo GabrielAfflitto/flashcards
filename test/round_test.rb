@@ -41,6 +41,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     assert_instance_of Guess, round.record_guess("Juneau")
+    assert_equal "Juneau", round.record_guess("Juneau").response
   end
 
   def test_guess_count
@@ -111,6 +112,19 @@ class RoundTest < Minitest::Test
 
 
     assert_equal 50, round.percent_correct
+  end
+
+  def test_for_second_guess_correct
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    round.record_guess("Juneau")
+    round.record_guess("93,000,000")
+
+    assert_equal 2, round.number_correct
+    assert_equal 2, round.guesses.count
   end
 
 end

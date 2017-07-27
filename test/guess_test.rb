@@ -23,7 +23,7 @@ class GuessTest < Minitest::Test
     card = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
 
-    assert true, guess.correct?
+    assert guess.correct?
   end
 
   def test_feedback
@@ -37,6 +37,13 @@ class GuessTest < Minitest::Test
     card = Card.new("Which planet is closest to the sun?", "Mercury")
     guess = Guess.new("Saturn", card)
 
-    refute false, guess.correct?
+    refute guess.correct?
+  end
+
+  def test_for_incorrect
+    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    guess = Guess.new("Saturn", card)
+
+    assert_equal "Incorrect!", guess.feedback
   end
 end

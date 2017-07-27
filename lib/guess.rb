@@ -17,7 +17,7 @@ class Guess
   def feedback
     if correct? == true
       p "Correct!"
-    elsif correct? == false
+    else
       p "Incorrect!"
     end
   end

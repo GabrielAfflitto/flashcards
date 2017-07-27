@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/deck'
 require './lib/card'
-require './lib/guess'
+# require './lib/guess'
 require 'pry'
 
 class DeckTest < Minitest::Test
@@ -19,6 +19,7 @@ class DeckTest < Minitest::Test
     deck = Deck.new([card_1, card_2, card_3])
 
     assert_equal [card_1, card_2, card_3], deck.cards
+    assert_instance_of Card, deck.cards.first
   end
 
   def test_the_count_is_3
