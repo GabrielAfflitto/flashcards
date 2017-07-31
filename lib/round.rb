@@ -1,6 +1,7 @@
 require './lib/guess'
 require './lib/deck'
 require './lib/card'
+require './lib/cardgenerator'
 require 'pry'
 class Round
   attr_reader :deck,
